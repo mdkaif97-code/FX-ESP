@@ -3,209 +3,150 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>FX ESP - Free Fire BR Scoreboard</title>
+<title>FX-ESP Free Fire Tournament</title>
 
 <style>
 *{
-    box-sizing:border-box;
-    margin:0;
-    padding:0;
-    font-family:Arial,Helvetica,sans-serif;
+  box-sizing:border-box;
+  margin:0;
+  padding:0;
+  font-family:Arial,Helvetica,sans-serif;
 }
 
 body{
-    background:#07111f;
-    color:white;
+  background:#070b17;
+  color:white;
 }
 
 header{
-    background:linear-gradient(135deg,#0b1d35,#123d67);
-    padding:22px 15px;
-    text-align:center;
-    border-bottom:2px solid #20a7ff;
+  background:linear-gradient(135deg,#0b1d35,#123d67);
+  padding:25px 15px;
+  text-align:center;
+  border-bottom:2px solid #20a7ff;
 }
 
 header h1{
-    font-size:34px;
-    letter-spacing:3px;
+  font-size:32px;
+  letter-spacing:2px;
 }
 
 header p{
-    color:#b9dfff;
-    margin-top:7px;
+  color:#9bdfff;
+  margin-top:7px;
 }
 
 .container{
-    width:95%;
-    max-width:1400px;
-    margin:20px auto;
+  width:95%;
+  max-width:1400px;
+  margin:20px auto;
 }
 
-.top-buttons{
-    display:flex;
-    gap:10px;
-    flex-wrap:wrap;
-    margin-bottom:20px;
+.info{
+  display:grid;
+  grid-template-columns:repeat(3,1fr);
+  gap:12px;
+  margin-bottom:20px;
 }
 
-button{
-    border:0;
-    padding:11px 16px;
-    border-radius:8px;
-    cursor:pointer;
-    font-weight:bold;
-    color:white;
-    background:#087fd1;
+.card{
+  background:#0c1426;
+  border:1px solid #1d405e;
+  border-radius:12px;
+  padding:18px;
+  text-align:center;
 }
 
-button:hover{
-    opacity:.85;
+.card h3{
+  color:#40baff;
+  margin-bottom:7px;
 }
 
-.reset{
-    background:#d63031;
+.card strong{
+  font-size:24px;
 }
 
-.rules{
-    background:#0c1b2e;
-    border:1px solid #1d405e;
-    border-radius:12px;
-    padding:15px;
-    margin-bottom:20px;
-}
-
-.rules h2{
-    margin-bottom:10px;
-    color:#40baff;
-}
-
-.rules span{
-    display:inline-block;
-    margin:5px 10px 5px 0;
-    background:#122b45;
-    padding:7px 10px;
-    border-radius:6px;
-    font-size:14px;
-}
-
-.table-wrap{
-    overflow-x:auto;
-    border-radius:12px;
-    border:1px solid #204563;
+.table-box{
+  background:#0c1426;
+  border:1px solid #1d405e;
+  border-radius:12px;
+  overflow:auto;
 }
 
 table{
-    width:100%;
-    min-width:1200px;
-    border-collapse:collapse;
-    background:#0b1929;
+  width:100%;
+  border-collapse:collapse;
+  min-width:900px;
 }
 
 th{
-    background:#0e3151;
-    padding:12px 8px;
-    color:#fff;
-    position:sticky;
-    top:0;
-    z-index:2;
+  background:#123d67;
+  color:#ffffff;
+  padding:13px 8px;
 }
 
 td{
-    padding:9px 7px;
-    border-bottom:1px solid #19344c;
-    text-align:center;
+  padding:11px 8px;
+  text-align:center;
+  border-bottom:1px solid #1c2d44;
 }
 
 tr:hover{
-    background:#10253a;
-}
-
-.team-cell{
-    min-width:220px;
-    text-align:left;
-}
-
-.team-box{
-    display:flex;
-    align-items:center;
-    gap:10px;
-}
-
-.logo{
-    width:45px;
-    height:45px;
-    border-radius:50%;
-    object-fit:cover;
-    background:#162f46;
-    border:2px solid #249fe8;
-}
-
-.team-name{
-    background:#10253a;
-    color:white;
-    border:1px solid #28516d;
-    padding:8px;
-    border-radius:6px;
-    width:140px;
-}
-
-.file-input{
-    display:none;
-}
-
-.logo-btn{
-    padding:7px 9px;
-    font-size:12px;
-    background:#244866;
-}
-
-input[type=number]{
-    width:58px;
-    background:#0e2337;
-    color:white;
-    border:1px solid #2a5878;
-    border-radius:5px;
-    padding:7px;
-    text-align:center;
-}
-
-select{
-    width:58px;
-    background:#0e2337;
-    color:white;
-    border:1px solid #2a5878;
-    border-radius:5px;
-    padding:7px 2px;
-}
-
-.total{
-    color:#39c4ff;
-    font-size:18px;
-    font-weight:bold;
+  background:#111d31;
 }
 
 .rank{
-    font-size:18px;
-    font-weight:bold;
+  font-weight:bold;
+  color:#40baff;
 }
 
-.match-total{
-    font-weight:bold;
-    color:#7bd5ff;
+.team{
+  text-align:left;
+  font-weight:bold;
 }
 
-.leader{
-    background:rgba(255,193,7,.12);
+.total{
+  color:#54ff9b;
+  font-weight:bold;
 }
 
-@media(max-width:600px){
-    header h1{
-        font-size:26px;
-    }
+.kill{
+  color:#ffd54a;
+}
 
-    .container{
-        width:98%;
-    }
+.match{
+  color:#9bdfff;
+}
+
+.rules{
+  margin-top:20px;
+  background:#0c1426;
+  border:1px solid #1d405e;
+  border-radius:12px;
+  padding:18px;
+}
+
+.rules h2{
+  color:#40baff;
+  margin-bottom:10px;
+}
+
+.rules li{
+  margin:8px 0 0 20px;
+  color:#d7e7f5;
+}
+
+@media(max-width:700px){
+  header h1{
+    font-size:25px;
+  }
+
+  .info{
+    grid-template-columns:1fr;
+  }
+
+  .container{
+    width:97%;
+  }
 }
 </style>
 </head>
@@ -213,433 +154,177 @@ select{
 <body>
 
 <header>
-    <h1>⚡ FX ESP</h1>
-    <p>FREE FIRE • BR TOURNAMENT SCOREBOARD</p>
+  <h1>FX-ESP</h1>
+  <p>FREE FIRE TOURNAMENT SCOREBOARD</p>
 </header>
 
 <div class="container">
 
-    <div class="top-buttons">
-        <button onclick="saveData()">💾 Save Score</button>
-        <button onclick="exportData()">📥 Export Data</button>
-        <button class="reset" onclick="resetData()">🗑 Reset All</button>
-    </div>
+<div class="info">
+  <div class="card">
+    <h3>TEAMS</h3>
+    <strong>12</strong>
+  </div>
 
-    <div class="rules">
-        <h2>🏆 Tournament Rules</h2>
-        <span>12 Teams</span>
-        <span>4 Players / Team</span>
-        <span>48 Players</span>
-        <span>6 Matches</span>
-        <span>🔫 1 Kill = 1 Point</span>
-        <span>🥇 Booyah = 12 Points</span>
-        <span>2nd Eliminated = 0</span>
-        <span>3rd Eliminated = 1</span>
-        <span>11th Eliminated = 9</span>
-    </div>
+  <div class="card">
+    <h3>MATCHES</h3>
+    <strong>6</strong>
+  </div>
 
-    <div class="table-wrap">
-        <table id="scoreTable">
-            <thead>
-                <tr>
-                    <th>Rank</th>
-                    <th>Team</th>
+  <div class="card">
+    <h3>GAME</h3>
+    <strong>FREE FIRE</strong>
+  </div>
+</div>
 
-                    <th>M1<br>Kill</th>
-                    <th>M1<br>Place</th>
-                    <th>M1<br>Total</th>
+<div class="table-box">
 
-                    <th>M2<br>Kill</th>
-                    <th>M2<br>Place</th>
-                    <th>M2<br>Total</th>
+<table>
+<thead>
+<tr>
+  <th>Rank</th>
+  <th>Team</th>
+  <th>M1</th>
+  <th>M2</th>
+  <th>M3</th>
+  <th>M4</th>
+  <th>M5</th>
+  <th>M6</th>
+  <th>Kills</th>
+  <th>Total</th>
+</tr>
+</thead>
 
-                    <th>M3<br>Kill</th>
-                    <th>M3<br>Place</th>
-                    <th>M3<br>Total</th>
+<tbody>
 
-                    <th>M4<br>Kill</th>
-                    <th>M4<br>Place</th>
-                    <th>M4<br>Total</th>
+<tr>
+<td class="rank">1</td>
+<td class="team">TEAM 01</td>
+<td class="match">0</td>
+<td class="match">0</td>
+<td class="match">0</td>
+<td class="match">0</td>
+<td class="match">0</td>
+<td class="match">0</td>
+<td class="kill">0</td>
+<td class="total">0</td>
+</tr>
 
-                    <th>M5<br>Kill</th>
-                    <th>M5<br>Place</th>
-                    <th>M5<br>Total</th>
+<tr>
+<td class="rank">2</td>
+<td class="team">TEAM 02</td>
+<td class="match">0</td>
+<td class="match">0</td>
+<td class="match">0</td>
+<td class="match">0</td>
+<td class="match">0</td>
+<td class="match">0</td>
+<td class="kill">0</td>
+<td class="total">0</td>
+</tr>
 
-                    <th>M6<br>Kill</th>
-                    <th>M6<br>Place</th>
-                    <th>M6<br>Total</th>
+<tr>
+<td class="rank">3</td>
+<td class="team">TEAM 03</td>
+<td class="match">0</td>
+<td class="match">0</td>
+<td class="match">0</td>
+<td class="match">0</td>
+<td class="match">0</td>
+<td class="match">0</td>
+<td class="kill">0</td>
+<td class="total">0</td>
+</tr>
 
-                    <th>🔥 Kills</th>
-                    <th>🏆 Total</th>
-                </tr>
-            </thead>
+<tr>
+<td class="rank">4</td>
+<td class="team">TEAM 04</td>
+<td>0</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td>
+<td class="kill">0</td>
+<td class="total">0</td>
+</tr>
 
-            <tbody id="teamBody"></tbody>
-        </table>
-    </div>
+<tr>
+<td class="rank">5</td>
+<td class="team">TEAM 05</td>
+<td>0</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td>
+<td class="kill">0</td>
+<td class="total">0</td>
+</tr>
+
+<tr>
+<td class="rank">6</td>
+<td class="team">TEAM 06</td>
+<td>0</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td>
+<td class="kill">0</td>
+<td class="total">0</td>
+</tr>
+
+<tr>
+<td class="rank">7</td>
+<td class="team">TEAM 07</td>
+<td>0</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td>
+<td class="kill">0</td>
+<td class="total">0</td>
+</tr>
+
+<tr>
+<td class="rank">8</td>
+<td class="team">TEAM 08</td>
+<td>0</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td>
+<td class="kill">0</td>
+<td class="total">0</td>
+</tr>
+
+<tr>
+<td class="rank">9</td>
+<td class="team">TEAM 09</td>
+<td>0</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td>
+<td class="kill">0</td>
+<td class="total">0</td>
+</tr>
+
+<tr>
+<td class="rank">10</td>
+<td class="team">TEAM 10</td>
+<td>0</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td>
+<td class="kill">0</td>
+<td class="total">0</td>
+</tr>
+
+<tr>
+<td class="rank">11</td>
+<td class="team">TEAM 11</td>
+<td>0</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td>
+<td class="kill">0</td>
+<td class="total">0</td>
+</tr>
+
+<tr>
+<td class="rank">12</td>
+<td class="team">TEAM 12</td>
+<td>0</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td>
+<td class="kill">0</td>
+<td class="total">0</td>
+</tr>
+
+</tbody>
+</table>
 
 </div>
 
-<script>
-
-const TEAM_COUNT = 12;
-const MATCH_COUNT = 6;
-
-let teams = [];
-
-function defaultTeam(index){
-    return {
-        name: "TEAM " + (index + 1),
-        logo: "",
-        matches: Array.from({length:MATCH_COUNT},()=>({
-            kills:0,
-            place:1
-        }))
-    };
-}
-
-function loadData(){
-
-    const saved = localStorage.getItem("FX_ESP_DATA");
-
-    if(saved){
-        try{
-            teams = JSON.parse(saved);
-
-            while(teams.length < TEAM_COUNT){
-                teams.push(defaultTeam(teams.length));
-            }
-
-            teams = teams.slice(0,TEAM_COUNT);
-
-        }catch(e){
-            createDefault();
-        }
-    }else{
-        createDefault();
-    }
-
-    render();
-}
-
-function createDefault(){
-    teams = [];
-
-    for(let i=0;i<TEAM_COUNT;i++){
-        teams.push(defaultTeam(i));
-    }
-}
-
-function placementPoints(place){
-
-    /*
-      User's placement system:
-
-      1st eliminated = 0
-      2nd eliminated = 0
-      3rd eliminated = 1
-      4th eliminated = 2
-      ...
-      11th eliminated = 9
-      Booyah = 12
-
-      Select value:
-      1 = 1st eliminated
-      2 = 2nd eliminated
-      ...
-      11 = 11th eliminated
-      12 = Booyah
-    */
-
-    place = Number(place);
-
-    if(place === 12) return 12;
-
-    if(place <= 2) return 0;
-
-    return place - 2;
-}
-
-function placeText(place){
-
-    if(place == 12) return "🏆 Booyah";
-
-    return "P" + place;
-}
-
-function calculateTeam(team){
-
-    let totalKills = 0;
-    let totalPoints = 0;
-
-    team.matches.forEach(match=>{
-        totalKills += Number(match.kills) || 0;
-
-        totalPoints +=
-            (Number(match.kills) || 0) +
-            placementPoints(match.place);
-    });
-
-    return {
-        kills:totalKills,
-        points:totalPoints
-    };
-}
-
-function render(){
-
-    const body = document.getElementById("teamBody");
-
-    const ranked = teams.map((team,index)=>{
-
-        const score = calculateTeam(team);
-
-        return {
-            team,
-            index,
-            kills:score.kills,
-            points:score.points
-        };
-
-    });
-
-    ranked.sort((a,b)=>{
-
-        if(b.points !== a.points)
-            return b.points-a.points;
-
-        return b.kills-a.kills;
-
-    });
-
-    body.innerHTML = "";
-
-    ranked.forEach((item,rankIndex)=>{
-
-        const team = item.team;
-        const originalIndex = item.index;
-
-        const tr = document.createElement("tr");
-
-        if(rankIndex === 0){
-            tr.classList.add("leader");
-        }
-
-        let html = `
-            <td class="rank">
-                ${rankIndex === 0 ? "🥇" :
-                  rankIndex === 1 ? "🥈" :
-                  rankIndex === 2 ? "🥉" :
-                  rankIndex+1}
-            </td>
-
-            <td class="team-cell">
-
-                <div class="team-box">
-
-                    <img
-                        class="logo"
-                        id="logo-${originalIndex}"
-                        src="${team.logo || 'data:image/svg+xml;charset=UTF-8,' +
-                        encodeURIComponent('<svg xmlns="http://www.w3.org/2000/svg" width="100" height="100"><rect width="100" height="100" fill="#162f46"/><text x="50" y="58" text-anchor="middle" fill="white" font-size="38">⚡</text></svg>')}"
-                    >
-
-                    <div>
-                        <input
-                            class="team-name"
-                            value="${escapeHtml(team.name)}"
-                            onchange="changeTeamName(${originalIndex},this.value)"
-                        >
-
-                        <br>
-
-                        <label class="logo-btn">
-                            🖼 Logo
-                            <input
-                                class="file-input"
-                                type="file"
-                                accept="image/*"
-                                onchange="changeLogo(event,${originalIndex})"
-                            >
-                        </label>
-                    </div>
-
-                </div>
-
-            </td>
-        `;
-
-        for(let m=0;m<MATCH_COUNT;m++){
-
-            const match = team.matches[m];
-
-            html += `
-
-                <td>
-                    <input
-                        type="number"
-                        min="0"
-                        value="${match.kills}"
-                        onchange="changeKills(${originalIndex},${m},this.value)"
-                    >
-                </td>
-
-                <td>
-                    <select onchange="changePlace(${originalIndex},${m},this.value)">
-                        ${createPlaceOptions(match.place)}
-                    </select>
-                </td>
-
-                <td class="match-total">
-                    ${Number(match.kills || 0) + placementPoints(match.place)}
-                </td>
-
-            `;
-        }
-
-        html += `
-            <td class="total">
-                ${item.kills}
-            </td>
-
-            <td class="total">
-                ${item.points}
-            </td>
-        `;
-
-        tr.innerHTML = html;
-
-        body.appendChild(tr);
-
-    });
-}
-
-function createPlaceOptions(selected){
-
-    let options = "";
-
-    for(let i=1;i<=12;i++){
-
-        options += `
-            <option value="${i}" ${Number(selected)===i?"selected":""}>
-                ${placeText(i)}
-            </option>
-        `;
-
-    }
-
-    return options;
-}
-
-function changeTeamName(index,value){
-
-    teams[index].name = value.trim() || "TEAM " + (index+1);
-
-    saveData(false);
-    render();
-}
-
-function changeKills(teamIndex,matchIndex,value){
-
-    let kills = parseInt(value);
-
-    if(isNaN(kills) || kills < 0)
-        kills = 0;
-
-    teams[teamIndex].matches[matchIndex].kills = kills;
-
-    saveData(false);
-    render();
-}
-
-function changePlace(teamIndex,matchIndex,value){
-
-    teams[teamIndex].matches[matchIndex].place = Number(value);
-
-    saveData(false);
-    render();
-}
-
-function changeLogo(event,index){
-
-    const file = event.target.files[0];
-
-    if(!file) return;
-
-    const reader = new FileReader();
-
-    reader.onload = function(e){
-
-        teams[index].logo = e.target.result;
-
-        saveData(false);
-        render();
-
-    };
-
-    reader.readAsDataURL(file);
-}
-
-function saveData(showMessage=true){
-
-    localStorage.setItem(
-        "FX_ESP_DATA",
-        JSON.stringify(teams)
-    );
-
-    if(showMessage){
-        alert("✅ FX ESP score saved successfully!");
-    }
-}
-
-function resetData(){
-
-    const confirmReset =
-        confirm("⚠️ Kya aap saara scoreboard reset karna chahte hain?");
-
-    if(!confirmReset) return;
-
-    localStorage.removeItem("FX_ESP_DATA");
-
-    createDefault();
-
-    render();
-}
-
-function exportData(){
-
-    const data = JSON.stringify(teams,null,2);
-
-    const blob = new Blob(
-        [data],
-        {type:"application/json"}
-    );
-
-    const url = URL.createObjectURL(blob);
-
-    const a = document.createElement("a");
-
-    a.href = url;
-    a.download = "FX_ESP_Scoreboard.json";
-
-    a.click();
-
-    URL.revokeObjectURL(url);
-}
-
-function escapeHtml(text){
-
-    return String(text)
-        .replace(/&/g,"&amp;")
-        .replace(/</g,"&lt;")
-        .replace(/>/g,"&gt;")
-        .replace(/"/g,"&quot;")
-        .replace(/'/g,"&#039;");
-}
-
-loadData();
-
-</script>
+<div class="rules">
+<h2>TOURNAMENT RULES</h2>
+<ul>
+<li>6 Matches will be played.</li>
+<li>Kill Point = 1 Point.</li>
+<li>Placement Points will be added according to tournament rules.</li>
+<li>Highest total points will get the highest rank.</li>
+<li>In case of equal points, kills will be used as the tiebreaker.</li>
+</ul>
+</div>
+
+</div>
 
 </body>
 </html>
