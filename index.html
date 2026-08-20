@@ -1,0 +1,525 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>FX-ESP | Free Fire Tournaments</title>
+
+<style>
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+    font-family:Arial,Helvetica,sans-serif;
+}
+
+body{
+    background:#03060b;
+    color:#fff;
+}
+
+/* HEADER */
+header{
+    background:#05080f;
+    border-bottom:1px solid #168cff;
+    padding:14px 5%;
+    display:flex;
+    align-items:center;
+    justify-content:space-between;
+    position:sticky;
+    top:0;
+    z-index:100;
+}
+
+.logo{
+    width:105px;
+    height:60px;
+    object-fit:contain;
+}
+
+nav{
+    display:flex;
+    gap:25px;
+}
+
+nav a{
+    color:#fff;
+    text-decoration:none;
+    font-weight:bold;
+    font-size:14px;
+}
+
+nav a:hover{
+    color:#20a7ff;
+}
+
+/* HERO */
+.hero{
+    min-height:380px;
+    padding:70px 20px;
+    text-align:center;
+    display:flex;
+    flex-direction:column;
+    justify-content:center;
+    align-items:center;
+
+    background:
+    radial-gradient(circle at center,#10294a 0%,#050a12 45%,#03060b 100%);
+}
+
+.hero h1{
+    font-size:58px;
+    letter-spacing:6px;
+    color:#fff;
+    text-shadow:0 0 20px #168cff;
+}
+
+.hero h2{
+    margin-top:10px;
+    font-size:20px;
+    letter-spacing:5px;
+    color:#55c5ff;
+}
+
+.hero p{
+    margin-top:15px;
+    color:#b7c6d8;
+}
+
+/* SECTION */
+.container{
+    width:94%;
+    max-width:1200px;
+    margin:40px auto;
+}
+
+.section-title{
+    text-align:center;
+    margin-bottom:30px;
+}
+
+.section-title h2{
+    font-size:30px;
+    color:#fff;
+    letter-spacing:2px;
+}
+
+.section-title p{
+    margin-top:8px;
+    color:#7890a8;
+}
+
+/* TOURNAMENTS */
+.tournaments{
+    display:grid;
+    grid-template-columns:repeat(5,1fr);
+    gap:15px;
+}
+
+.card{
+    background:linear-gradient(145deg,#0b1422,#050a12);
+    border:1px solid #17415f;
+    border-radius:15px;
+    padding:22px 15px;
+    text-align:center;
+    min-height:300px;
+    display:flex;
+    flex-direction:column;
+    justify-content:space-between;
+    transition:.3s;
+}
+
+.card:hover{
+    transform:translateY(-6px);
+    border-color:#20a7ff;
+    box-shadow:0 0 20px rgba(32,167,255,.25);
+}
+
+.icon{
+    width:70px;
+    height:70px;
+    margin:auto;
+    border-radius:50%;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    font-size:32px;
+    background:#071a2d;
+    border:2px solid #168cff;
+}
+
+.card h3{
+    margin-top:15px;
+    font-size:20px;
+    color:#40baff;
+}
+
+.card p{
+    margin-top:12px;
+    color:#b8c6d6;
+    font-size:14px;
+    line-height:1.7;
+}
+
+.matches{
+    color:#fff !important;
+    font-weight:bold;
+}
+
+.btn{
+    display:block;
+    margin-top:18px;
+    padding:11px;
+    border-radius:8px;
+    background:#087fd1;
+    color:#fff;
+    text-decoration:none;
+    font-weight:bold;
+}
+
+.btn:hover{
+    background:#20a7ff;
+}
+
+/* REGISTRATION */
+.registration{
+    margin-top:45px;
+    padding:30px;
+    background:linear-gradient(145deg,#0b1524,#050a11);
+    border:1px solid #168cff;
+    border-radius:15px;
+    text-align:center;
+}
+
+.registration h2{
+    color:#40baff;
+    margin-bottom:10px;
+}
+
+.registration p{
+    color:#9eb0c4;
+    margin-bottom:22px;
+}
+
+.register-btn{
+    display:inline-block;
+    padding:14px 35px;
+    background:linear-gradient(90deg,#087fd1,#20a7ff);
+    color:white;
+    text-decoration:none;
+    border-radius:8px;
+    font-weight:bold;
+}
+
+/* FEATURES */
+.features{
+    margin-top:30px;
+    display:grid;
+    grid-template-columns:repeat(3,1fr);
+    gap:15px;
+}
+
+.feature{
+    background:#080f19;
+    border:1px solid #172b40;
+    padding:22px;
+    text-align:center;
+    border-radius:12px;
+}
+
+.feature h3{
+    color:#40baff;
+    margin-bottom:8px;
+}
+
+.feature p{
+    color:#8fa2b7;
+    font-size:14px;
+}
+
+/* FOOTER */
+footer{
+    margin-top:50px;
+    padding:30px 15px;
+    text-align:center;
+    background:#020408;
+    border-top:1px solid #142333;
+}
+
+footer h2{
+    color:#fff;
+}
+
+footer p{
+    margin-top:8px;
+    color:#718096;
+    font-size:13px;
+}
+
+/* MOBILE */
+@media(max-width:900px){
+
+    .tournaments{
+        grid-template-columns:repeat(2,1fr);
+    }
+
+    .features{
+        grid-template-columns:1fr;
+    }
+
+    nav{
+        display:none;
+    }
+
+    .hero h1{
+        font-size:40px;
+    }
+}
+
+@media(max-width:550px){
+
+    .tournaments{
+        grid-template-columns:1fr;
+    }
+
+    .hero{
+        min-height:300px;
+    }
+
+    .hero h1{
+        font-size:34px;
+        letter-spacing:3px;
+    }
+
+    .hero h2{
+        font-size:15px;
+        letter-spacing:3px;
+    }
+}
+</style>
+</head>
+
+<body>
+
+<!-- HEADER -->
+<header>
+
+    <!-- Apna FX-ESP logo yahan lagana hai -->
+    <img src="logo.png" class="logo" alt="FX-ESP">
+
+    <nav>
+        <a href="#">HOME</a>
+        <a href="#tournaments">TOURNAMENTS</a>
+        <a href="#registration">REGISTRATION</a>
+        <a href="#">SCOREBOARD</a>
+        <a href="#">RULES</a>
+    </nav>
+
+</header>
+
+
+<!-- HERO -->
+<section class="hero">
+
+    <h1>FX-ESP</h1>
+
+    <h2>FREE FIRE TOURNAMENTS</h2>
+
+    <p>Compete • Fight • Win</p>
+
+</section>
+
+
+<!-- TOURNAMENTS -->
+<div class="container" id="tournaments">
+
+    <div class="section-title">
+        <h2>OUR TOURNAMENTS</h2>
+        <p>Choose your battle</p>
+    </div>
+
+
+    <div class="tournaments">
+
+
+        <!-- SQUAD BR -->
+        <div class="card">
+
+            <div>
+                <div class="icon">👥</div>
+
+                <h3>SQUAD BR</h3>
+
+                <p>
+                    12 Teams<br>
+                    4 Players per Team
+                </p>
+
+                <p class="matches">
+                    48 Players • 6 Matches
+                </p>
+            </div>
+
+            <a href="squad.html" class="btn">
+                VIEW MATCHES
+            </a>
+
+        </div>
+
+
+        <!-- BR SOLO -->
+        <div class="card">
+
+            <div>
+                <div class="icon">👤</div>
+
+                <h3>BR SOLO</h3>
+
+                <p>
+                    30 Players<br>
+                    1 Player per Slot
+                </p>
+
+                <p class="matches">
+                    30 Slots • 1 Match
+                </p>
+            </div>
+
+            <a href="solo.html" class="btn">
+                VIEW MATCHES
+            </a>
+
+        </div>
+
+
+        <!-- CLASH SQUAD -->
+        <div class="card">
+
+            <div>
+                <div class="icon">⚔️</div>
+
+                <h3>CLASH SQUAD</h3>
+
+                <p>
+                    6 Teams<br>
+                    4 Players per Team
+                </p>
+
+                <p class="matches">
+                    24 Players • 1 Match
+                </p>
+            </div>
+
+            <a href="clash.html" class="btn">
+                VIEW MATCHES
+            </a>
+
+        </div>
+
+
+        <!-- WEEKLY -->
+        <div class="card">
+
+            <div>
+                <div class="icon">🏆</div>
+
+                <h3>WEEKLY</h3>
+
+                <p>
+                    Weekly Tournament<br>
+                    Details Coming Soon
+                </p>
+            </div>
+
+            <a href="weekly.html" class="btn">
+                VIEW MATCHES
+            </a>
+
+        </div>
+
+
+        <!-- FREE -->
+        <div class="card">
+
+            <div>
+                <div class="icon">🆓</div>
+
+                <h3>FREE</h3>
+
+                <p>
+                    Solo Tournament<br>
+                    Open for Players
+                </p>
+
+                <p class="matches">
+                    1 Match
+                </p>
+            </div>
+
+            <a href="free.html" class="btn">
+                VIEW MATCHES
+            </a>
+
+        </div>
+
+
+    </div>
+
+
+    <!-- REGISTRATION -->
+    <div class="registration" id="registration">
+
+        <h2>REGISTER FOR TOURNAMENT</h2>
+
+        <p>
+            Select your tournament and register now.
+        </p>
+
+        <a href="registration.html" class="register-btn">
+            📝 REGISTER NOW
+        </a>
+
+    </div>
+
+
+    <!-- FEATURES -->
+    <div class="features">
+
+        <div class="feature">
+            <h3>🛡️ FAIR PLAY</h3>
+            <p>Fair and competitive tournament environment.</p>
+        </div>
+
+        <div class="feature">
+            <h3>⚡ LIVE SCORE</h3>
+            <p>Check tournament scores and match results.</p>
+        </div>
+
+        <div class="feature">
+            <h3>🏆 COMPETE & WIN</h3>
+            <p>Play tournaments and compete with other players.</p>
+        </div>
+
+    </div>
+
+</div>
+
+
+<!-- FOOTER -->
+<footer>
+
+    <h2>FX-ESP</h2>
+
+    <p>
+        Free Fire Tournament & Live Scoreboard
+    </p>
+
+    <p>
+        © 2026 FX-ESP. All Rights Reserved.
+    </p>
+
+</footer>
+
+</body>
+  </html>
