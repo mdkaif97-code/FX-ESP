@@ -1,0 +1,349 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>FX-ESP | Registration</title>
+
+<style>
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+    font-family:Arial,Helvetica,sans-serif;
+}
+
+body{
+    background:#03060b;
+    color:#fff;
+    min-height:100vh;
+}
+
+header{
+    text-align:center;
+    padding:25px 15px;
+    background:#05080f;
+    border-bottom:1px solid #168cff;
+}
+
+header h1{
+    font-size:34px;
+    letter-spacing:4px;
+    color:#fff;
+    text-shadow:0 0 15px #168cff;
+}
+
+header p{
+    margin-top:8px;
+    color:#7fcfff;
+}
+
+.container{
+    width:92%;
+    max-width:700px;
+    margin:35px auto;
+}
+
+.form-box{
+    background:linear-gradient(145deg,#0b1422,#050a12);
+    border:1px solid #17415f;
+    border-radius:16px;
+    padding:25px;
+    box-shadow:0 0 25px rgba(32,167,255,.12);
+}
+
+h2{
+    text-align:center;
+    color:#40baff;
+    margin-bottom:25px;
+}
+
+label{
+    display:block;
+    margin:15px 0 7px;
+    color:#c8d5e3;
+    font-weight:bold;
+}
+
+input,
+select{
+    width:100%;
+    padding:13px;
+    border-radius:8px;
+    border:1px solid #29445c;
+    background:#07101b;
+    color:#fff;
+    outline:none;
+}
+
+input:focus,
+select:focus{
+    border-color:#20a7ff;
+    box-shadow:0 0 8px rgba(32,167,255,.2);
+}
+
+.tournament-info{
+    margin-top:18px;
+    padding:15px;
+    border-radius:10px;
+    background:#071525;
+    border:1px solid #16415f;
+    color:#a9bfd2;
+    line-height:1.7;
+    display:none;
+}
+
+button{
+    width:100%;
+    margin-top:25px;
+    padding:14px;
+    border:0;
+    border-radius:9px;
+    background:linear-gradient(90deg,#087fd1,#20a7ff);
+    color:white;
+    font-size:17px;
+    font-weight:bold;
+    cursor:pointer;
+}
+
+button:hover{
+    opacity:.9;
+}
+
+.back{
+    display:block;
+    text-align:center;
+    margin-top:20px;
+    color:#55c5ff;
+    text-decoration:none;
+}
+
+.success{
+    display:none;
+    margin-top:20px;
+    padding:15px;
+    border-radius:10px;
+    background:#092718;
+    border:1px solid #20b56b;
+    color:#8dffc1;
+    text-align:center;
+}
+
+@media(max-width:500px){
+    .container{
+        width:95%;
+    }
+
+    .form-box{
+        padding:20px;
+    }
+
+    header h1{
+        font-size:27px;
+    }
+}
+</style>
+</head>
+
+<body>
+
+<header>
+    <h1>FX-ESP</h1>
+    <p>TOURNAMENT REGISTRATION</p>
+</header>
+
+<div class="container">
+
+<div class="form-box">
+
+<h2>REGISTER NOW</h2>
+
+<form id="registrationForm">
+
+<label for="tournament">
+Select Tournament
+</label>
+
+<select id="tournament" required>
+
+<option value="">-- Select Tournament --</option>
+
+<option value="squad">
+🏆 Squad BR
+</option>
+
+<option value="solo">
+👤 BR Solo
+</option>
+
+<option value="clash">
+⚔️ Clash Squad
+</option>
+
+<option value="weekly">
+🏆 Weekly
+</option>
+
+<option value="free">
+🆓 Free
+</option>
+
+</select>
+
+
+<div id="tournamentInfo" class="tournament-info"></div>
+
+
+<label for="name">
+Player Name
+</label>
+
+<input
+type="text"
+id="name"
+placeholder="Enter your name"
+required
+>
+
+
+<label for="uid">
+Free Fire UID
+</label>
+
+<input
+type="text"
+id="uid"
+placeholder="Enter your Free Fire UID"
+required
+>
+
+
+<label for="ign">
+In-Game Name
+</label>
+
+<input
+type="text"
+id="ign"
+placeholder="Enter your in-game name"
+required
+>
+
+
+<label for="contact">
+Contact Number
+</label>
+
+<input
+type="tel"
+id="contact"
+placeholder="Enter contact number"
+required
+>
+
+
+<button type="submit">
+SUBMIT REGISTRATION
+</button>
+
+</form>
+
+
+<div id="success" class="success">
+Registration form submitted successfully.
+</div>
+
+<a href="index.html" class="back">
+← Back to Home
+</a>
+
+</div>
+
+</div>
+
+
+<script>
+
+const tournament =
+document.getElementById("tournament");
+
+const info =
+document.getElementById("tournamentInfo");
+
+tournament.addEventListener("change", function(){
+
+    const value = this.value;
+
+    info.style.display = "block";
+
+    if(value === "squad"){
+
+        info.innerHTML =
+        "<b>Squad BR</b><br>" +
+        "12 Teams • 4 Players per Team<br>" +
+        "48 Players • 6 Matches";
+
+    }
+
+    else if(value === "solo"){
+
+        info.innerHTML =
+        "<b>BR Solo</b><br>" +
+        "30 Players<br>" +
+        "30 Slots • 1 Match";
+
+    }
+
+    else if(value === "clash"){
+
+        info.innerHTML =
+        "<b>Clash Squad</b><br>" +
+        "6 Teams • 4 Players per Team<br>" +
+        "24 Players • 1 Match";
+
+    }
+
+    else if(value === "weekly"){
+
+        info.innerHTML =
+        "<b>Weekly Tournament</b><br>" +
+        "Tournament details will be announced soon.";
+
+    }
+
+    else if(value === "free"){
+
+        info.innerHTML =
+        "<b>Free Tournament</b><br>" +
+        "Solo Tournament • 1 Match";
+
+    }
+
+    else{
+
+        info.style.display = "none";
+
+    }
+
+});
+
+
+document.getElementById("registrationForm")
+.addEventListener("submit", function(event){
+
+    event.preventDefault();
+
+    document.getElementById("success")
+    .style.display = "block";
+
+    this.reset();
+
+    info.style.display = "none";
+
+});
+
+</script>
+
+</body>
+</html>
